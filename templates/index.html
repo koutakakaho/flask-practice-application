@@ -1,0 +1,17 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>フィードの表示</title>
+</head>
+<body>
+<h1>フィード</h1>
+    {% for feed_dic in feed_dics %}
+    {% print(feed_dic.entry) %}
+        {% for entries in feed_dic.entries %}
+            <h2><a href={{ entries.link }}>{{ entries.title}}</a></h2>
+        {% endfor %}
+    {% endfor %}
+</body>
+</html>
