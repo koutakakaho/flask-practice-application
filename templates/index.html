@@ -4,19 +4,65 @@
 <head>
     <meta charset="utf-8">
     <title>フィードの表示</title>
+		<meta name="viewport" content="width=device-width initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
     <header>
-    
-    </header>
-<h1>フィード</h1>
+    	<div class="collapse bg-dark" id="navbarHeader">
     <div class="container">
-        {% for feed_dic in feed_dics %}
-        {% print(feed_dic.entry) %}
-            {% for entries in feed_dic.entries %}
-                <h2><a href={{ entries.link }}>{{ entries.title}}</a></h2>
-            {% endfor %}
-        {% endfor %}
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">About</h4>
+          <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Contact</h4>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white">Follow on Twitter</a></li>
+            <li><a href="#" class="text-white">Like on Facebook</a></li>
+            <li><a href="#" class="text-white">Email me</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container d-flex justify-content-between">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <strong>大学のイベントフィード</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+    </header>
+	
+	<main>
+			<div class="container">
+
+				<div class="row">
+					 {% for feed_dic in feed_dics %}
+							{% for entries in feed_dic.entries %}
+					<div class="col-md-4" style="height= 300px">
+						<div class="card mb-4 shadow-sm">
+							<div class="card-body">
+							
+								<p class="card-text">
+									<a href={{ entries.link }}>{{ entries.title }}</a>
+								</p>
+						</div>
+								<div class="d-flex justify-content-between align-items-center">
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+				{% endfor %}
+					</div>
+					
+				</div>
+					
+	</main>
 </body>
 </html>
