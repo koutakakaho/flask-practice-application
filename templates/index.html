@@ -8,6 +8,13 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+<!--
+		{% for feed_dic in feed_dics %}
+			{% for entries in feed_dic.entries %}
+					{% print(entries.updated) %}
+	    {% endfor %}
+	  {% endfor %}
+-->
     <header>
     	<div class="collapse bg-dark" id="navbarHeader">
     <div class="container">
@@ -39,29 +46,32 @@
   </div>
     </header>
 	
+    <div class="search">
+        <form action="/" method="POST">
+            <input name="num">
+        </form>
+    </div>
 	<main>
 			<div class="container">
 
 				<div class="row">
-					 {% for feed_dic in feed_dics %}
-							{% for entries in feed_dic.entries %}
-					<div class="col-md-4" style="height= 300px">
-						<div class="card mb-4 shadow-sm">
-							<div class="card-body">
-								<img src={{ url_for("static", filename="No Image.png")}} alt="No-image">
-								<p class="card-text">
-									<a href={{ entries.link }}>{{ entries.title }}</a>
-								</p>
-						</div>
-								<div class="d-flex justify-content-between align-items-center">
-								</div>
-							</div>
-						</div>
+				  {% for entries in entry %}
+              <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                  <div class="card-body">
+                    <img src={{ url_for("static", filename="No Image.png")}} alt="No-image">
+                    <p class="card-text">
+                      <small>{{ entries.updated }}</small><br>
+                      <a href={{ entries.link }}>{{ entries.title }}</a>
+                    </p>
+                </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                    </div>
+                  </div>
+                </div>
 						{% endfor %}
-				{% endfor %}
-					</div>
-					
 				</div>
+      </div>
 					
 	</main>
 </body>
