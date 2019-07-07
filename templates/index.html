@@ -57,38 +57,43 @@
   </div>
     </header>
 	
-    <div class="search text-center mg-2">
+   <div class="jumbotron">
+		 <h3>イベントを探す</h3>
+    <div class="search  mg-2">
         <form action="/" method="POST">
-            <input name="num" type="number" placeholder="検索したい数を選んでください">
+            <input name="text" type="text" placeholder="検索したい数を選んでください">
+					<input type="submit" value="submit">
         </form>
     </div>
+	</div>
 	<main>
 			<div class="container">
 
 				<div class="row">
+							<div class="col-md-5">
+                <a href="https://px.a8.net/svt/ejp?a8mat=2ZTQ40+BWO4C2+3JWG+5ZMCH" target="_blank" rel="nofollow">
+<img border="0" width="300" height="250" alt="" src="https://www27.a8.net/svt/bgt?aid=181105776720&wid=001&eno=01&mid=s00000016576001006000&mc=1"></a>
+<img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=2ZTQ40+BWO4C2+3JWG+5ZMCH" alt="">
+            </div>
 				  {% for entries in entry %}
               <div class="col-md-5">
                 <div class="card mb-4 shadow-sm">
                   <div class="card-body">
-                    <img src={{ url_for("static", filename="No Image.png")}} alt="No-image">
+                    <img src={{ url_for("static", filename="No Image.png")}} alt="No-image" class="img-thumbnail">
                     <p class="card-text">
                       <small>{{ entries.updated }}</small><br>
                       <a href={{ entries.link }}>{{ entries.title }}</a>
                     </p>
                 </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                    </div>
+                  
                   </div>
                 </div>
+							 
 						{% endfor %}
           
          
 <!--広告用のスペース-->
-            <div class="col-md-2">
-                <a href="https://px.a8.net/svt/ejp?a8mat=2ZTQ40+BWO4C2+3JWG+5ZMCH" target="_blank" rel="nofollow">
-<img border="0" width="300" height="250" alt="" src="https://www27.a8.net/svt/bgt?aid=181105776720&wid=001&eno=01&mid=s00000016576001006000&mc=1"></a>
-<img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=2ZTQ40+BWO4C2+3JWG+5ZMCH" alt="">
-            </div>
+           
 				</div>
       </div>
 					
