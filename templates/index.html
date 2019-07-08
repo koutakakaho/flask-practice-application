@@ -19,13 +19,7 @@
 
 </head>
 <body>
-<!--
-		{% for feed_dic in feed_dics %}
-			{% for entries in feed_dic.entries %}
-					{% print(entries.updated) %}
-	    {% endfor %}
-	  {% endfor %}
--->
+
     <header>
     	<div class="collapse bg-dark" id="navbarHeader">
     <div class="container">
@@ -64,7 +58,7 @@
             <input name="text" type="text" placeholder="検索したい数を選んでください">
 					<input type="submit" value="submit">
         </form>
-			
+
     </div>
 	</div>
 	<main>
@@ -76,14 +70,15 @@
 <img border="0" width="300" height="250" alt="" src="https://www27.a8.net/svt/bgt?aid=181105776720&wid=001&eno=01&mid=s00000016576001006000&mc=1"></a>
 <img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=2ZTQ40+BWO4C2+3JWG+5ZMCH" alt="">
             </div>
-				  {% for entries in entry %}
+          {% for sorted_entry in sorted_entry %}
+
               <div class="col-md-5">
                 <div class="card mb-4 shadow-sm">
                   <div class="card-body">
                     <img src={{ url_for("static", filename="No Image.png")}} alt="No-image" class="img-thumbnail">
                     <p class="card-text">
-                      <small>{{ entries.updated }}</small><br>
-                      <a href={{ entries.link }}>{{ entries.title }}</a>
+                      <small>{{ sorted_entry.updated }}</small><br>
+                      <a href={{ sorted_entry.link }}>{{ sorted_entry.title }}</a>
                     </p>
                 </div>
 

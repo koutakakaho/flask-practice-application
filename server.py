@@ -3,6 +3,7 @@ from flask import Flask, render_template, url_for, request, redirect
 import feedparser
 import logging
 
+#アプリケーションの起動
 app = Flask(__name__)
 
 #表示用のメソッド
@@ -18,26 +19,37 @@ def show(rss_urls):
 								entry.append(entries)
 		return entry
 
+#時系列順に並び替える
+def sort_by_time(entry):
+	entry = entry
+	sorted_entry = []
+	for entry in entry:
+		sorted_entry.append(entry)
+	return sorted(sorted_entry, key=lambda x: x["updated"], reverse=True)
+
+#RSS_URLsを宣言
+RSS_URLs = ["https://www.osaka-u.ac.jp/ja/event_rss"]
+
 #トップページのメソッド
 @app.route("/", methods=["GET"])
 def index():
-		RSS_URLs = ["https://www.osaka-u.ac.jp/ja/event_rss"]
 		entry = show(RSS_URLs)
-		return render_template("index.html", entry= entry)
+		sorted_entry = sort_by_time(entry)
+		return render_template("index.html", entry= entry, sorted_entry = sorted_entry)
 
 @app.route("/search", methods=["POST"])
 def search():
 	  #フォームで送信されたRSSのURLをRSS_URLsに付け足す
 		result = request.form["text"]
-		RSS_URLs = [result]
-
+		RSS_URLs.append(result)
+		entry = show(RSS_URLs)
 		#例外処理
 		#try
-		entry = show(RSS_URLs)
 #		print(entry)
 #		except Exception as e:
 #				return render_template("index.html", e=e)
-		return render_template("index.html", entry= entry)
+		sorted_entry = sort_by_time(entry)
+		return render_template("index.html", entry= entry, sorted_entry = sorted_entry)
 
 #存在しないページに対しての処理
 @app.errorhandler(404)
