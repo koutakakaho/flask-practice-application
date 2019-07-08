@@ -11,13 +11,11 @@ def show(rss_urls):
 		entry = []
 		feed_dics = []
 		for RSS_URL in RSS_URLs:
-				feed_dic = feedparser.parse(RSS_URLs)
+				feed_dic = feedparser.parse(RSS_URL)
 				feed_dics.append(feed_dic)
 				for feed_dic in feed_dics:
 						for entries in feed_dic.entries:
 								entry.append(entries)
-		print("エントリー{}, {}".format(entry, RSS_URLs))
-		
 		return entry
 
 #トップページのメソッド
@@ -32,19 +30,10 @@ def search():
 	  #フォームで送信されたRSSのURLをRSS_URLsに付け足す
 		result = request.form["text"]
 		RSS_URLs = [result]
-		
-		entry = []
-		feed_dics = []
-		for RSS_URL in RSS_URLs:
-				feed_dic = feedparser.parse(RSS_URLs)
-				feed_dics.append(feed_dic)
-				for feed_dic in feed_dics:
-						for entries in feed_dic.entries:
-								entry.append(entries)
-								
+
 		#例外処理
 		#try
-#		entry = show(RSS_URLs)
+		entry = show(RSS_URLs)
 #		print(entry)
 #		except Exception as e:
 #				return render_template("index.html", e=e)

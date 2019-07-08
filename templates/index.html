@@ -6,7 +6,7 @@
     <title>フィードの表示</title>
 		<meta name="viewport" content="width=device-width initial-scale=1, shrink-to-fit=no">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119902120-6"></script>
 <script>
@@ -56,7 +56,7 @@
     </div>
   </div>
     </header>
-	
+
    <div class="jumbotron">
 		 <h3>イベントを探す</h3>
     <div class="search  mg-2">
@@ -64,10 +64,7 @@
             <input name="text" type="text" placeholder="検索したい数を選んでください">
 					<input type="submit" value="submit">
         </form>
-				{% if e %}
-					<strong>このRSSは存在しないです・・・</strong>
-				{% endif %}
-					 
+			
     </div>
 	</div>
 	<main>
@@ -89,18 +86,18 @@
                       <a href={{ entries.link }}>{{ entries.title }}</a>
                     </p>
                 </div>
-                  
+
                   </div>
                 </div>
-							 
+
 						{% endfor %}
-          
-         
+
+
 <!--広告用のスペース-->
-           
+
 				</div>
       </div>
-					
+
 	</main>
 </body>
 </html>
