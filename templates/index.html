@@ -32,7 +32,7 @@
       <div class="row">
         <div class="col-sm-8 col-md-7 py-4">
           <h4 class="text-white">About</h4>
-          <p class="text-muted">大学のイベントフィードまとめ的なやつ</p>
+						<p class="text-muted"><a href="/">大学のイベントフィードまとめ的なやつ</a></p>
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
           <h4 class="text-white">Contact</h4>
@@ -47,7 +47,7 @@
   </div>
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container d-flex justify-content-between">
-      <a href="#" class="navbar-brand d-flex align-items-center">
+      <a href="/" class="navbar-brand d-flex align-items-center">
         <strong>大学のイベントフィード</strong>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,10 +60,14 @@
    <div class="jumbotron">
 		 <h3>イベントを探す</h3>
     <div class="search  mg-2">
-        <form action="/" method="POST">
+        <form action="/search" method="POST">
             <input name="text" type="text" placeholder="検索したい数を選んでください">
 					<input type="submit" value="submit">
         </form>
+				{% if e %}
+					<strong>このRSSは存在しないです・・・</strong>
+				{% endif %}
+					 
     </div>
 	</div>
 	<main>
