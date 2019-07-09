@@ -55,7 +55,7 @@
 		 <h3>イベントを探す</h3>
     <div class="search  mg-2">
         <form action="/search" method="POST">
-            <input name="text" type="text" placeholder="検索したい数を選んでください">
+            <input name="text" type="text" placeholder="検索したい大学を選んでください">
 					<input type="submit" value="submit">
         </form>
 
@@ -77,8 +77,10 @@
                   <div class="card-body">
                     <img src={{ url_for("static", filename="No Image.png")}} alt="No-image" class="img-thumbnail">
                     <p class="card-text">
-                      <small>{{ sorted_entry.updated }}</small><br>
-                      <a href={{ sorted_entry.link }}>{{ sorted_entry.title }}</a>
+                      <small>{{ sorted_entry.date }}</small><br>
+                      <a href={{ sorted_entry.link }}>{{ sorted_entry.title }}<br>
+						{{ sorted_entry.publisher}}
+						</a>
                     </p>
                 </div>
 
