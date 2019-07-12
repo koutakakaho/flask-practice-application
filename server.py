@@ -62,7 +62,10 @@ RSS_URLs = ["https://www.osaka-u.ac.jp/ja/event_rss","http://www.tuat.ac.jp/even
 def index():
 		entry = show(RSS_URLs)
 		sorted_entry = sort_by_time(entry)
-		return render_template("index.html", entry= entry, sorted_entry = sorted_entry)
+		
+		#sorted_entryの上位5件のみを取得
+		entry_top5 = sorted_entry[:5]
+		return render_template("index.html", entry_top5= entry_top5, sorted_entry = sorted_entry)
 
 @app.route("/search", methods=["POST"])
 def search():
@@ -70,11 +73,7 @@ def search():
 		result = request.form["text"]
 		RSS_URLs.append(result)
 		entry = show(RSS_URLs)
-		#例外処理
-		#try
-#		print(entry)
-#		except Exception as e:
-#				return render_template("index.html", e=e)
+		
 		sorted_entry = sort_by_time(entry)
 		return render_template("index.html", entry= entry, sorted_entry = sorted_entry)
 
